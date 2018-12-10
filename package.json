@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@progress/kendo-react-buttons": "^2.4.0",
+    "@progress/kendo-react-inputs": "^2.4.0",
+    "@progress/kendo-react-intl": "^2.4.0",
+    "@progress/kendo-theme-default": "^2.62.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1"

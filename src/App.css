@@ -48,7 +48,3 @@ li:nth-child(even) {
   margin-top: -20px;
   line-height: 2;
 }
-
-.band {
-  align-items: center;
-}

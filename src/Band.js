@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Button } from "@progress/kendo-react-buttons";
 
 class Band extends Component {
     constructor(props){
@@ -31,16 +32,29 @@ class Band extends Component {
         })
       }
 
+    renderBand(){
+        if(this.state.name != ''){
+            return (
+                <div className="bands">
+                    <h2>{this.state.name}</h2>
+                    <a href={this.state.link}>{this.state.link}</a>
+                    <img src={this.state.image} alt="image"/>
+                </div>
+            );
+        }else {
+            return <p>Digite uma banda!</p>
+        }
+    }
+
     render() {
         return(
             <div className="band">
                 <input type="text" value={this.state.band} onChange={e => this.setState({band: e.target.value})} />
-                <button onClick={() => this.callApi(this.state.band)} >Busca</button>
+                <br /><br />
+                <Button onClick={() => this.callApi(this.state.band)} >Busca</Button>
                 <br /><br /><br />
                 
-                <h2>{this.state.name}</h2>
-                <a href={this.state.link}>{this.state.link}</a>
-                <img src={this.state.image} alt="image"/>                
+                {this.renderBand()}                
             </div>
         )
     }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { NumericTextBox } from '@progress/kendo-react-inputs';
-import { Button } from "@progress/kendo-react-buttons";
 import './App.css';
 import '@progress/kendo-theme-default/dist/all.css';
 import Band from './Band';
@@ -15,7 +14,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
+      <div className="App">
         <Header />
         <Band />
       </div>

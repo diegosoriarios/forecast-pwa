@@ -11,7 +11,7 @@ class Band extends Component {
             image: '',
             link: '',
             band: '',
-            historico: ['Muse', 'Arctic Monkeys']
+            historico: []
         }
     }
 
@@ -21,13 +21,20 @@ class Band extends Component {
         }
     }*/
 
+    store = (band) => {
+        this.setState({
+            historico: this.state.historico.concat(band)
+        }, () => {
+            var items = this.state.historico;
+            localStorage.setItem("item", JSON.stringify(items));
+            console.log(this.state.historico);
+        });
+    }
+
     callApi(band){
         if(this.props.offline){
             alert("Você está offline");
-            this.setState({
-                historico: this.state.historico.concat(band)
-            })
-            console.log(this.state.historico);
+            this.store(band);            
         }else{
             fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=${band}&api_key=0c05709ba56254b354388302bb35460b&format=json`)
             .then((result) => {

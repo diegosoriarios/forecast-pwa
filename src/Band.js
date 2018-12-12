@@ -26,13 +26,20 @@ class Band extends Component {
     }
 
     store = (band) => {
-        this.setState({
-            historico: this.state.historico.concat(band)
-        }, () => {
-            this.state.historico.forEach((item) => {
-                localStorage.setItem(band, JSON.stringify(item));
-            })
+        let check = this.state.historico.some((nome) => {
+            return nome === band
         });
+        if(check){
+            console.log('Repetido');
+        }else{
+            this.setState({
+                historico: this.state.historico.concat(band)
+            }, () => {
+                this.state.historico.forEach((item) => {
+                    localStorage.setItem(band, JSON.stringify(item));
+                })
+            });
+        }
     }
 
     callApi(band){

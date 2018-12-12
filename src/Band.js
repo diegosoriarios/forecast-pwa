@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Button } from "@progress/kendo-react-buttons";
+import Menu from './Menu';
 
 class Band extends Component {
     constructor(props){
@@ -9,13 +10,24 @@ class Band extends Component {
             name: '',
             image: '',
             link: '',
-            band: ''
+            band: '',
+            historico: ['Muse', 'Arctic Monkeys']
         }
     }
+
+    /*componentDidUpdate(){
+        if(!this.props.offline && this.state.historico.length > 0){
+            alert("Quer procurar alguma dessas opções: \n" + this.state.historico);
+        }
+    }*/
 
     callApi(band){
         if(this.props.offline){
             alert("Você está offline");
+            this.setState({
+                historico: this.state.historico.concat(band)
+            })
+            console.log(this.state.historico);
         }else{
             fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=${band}&api_key=0c05709ba56254b354388302bb35460b&format=json`)
             .then((result) => {
@@ -34,7 +46,16 @@ class Band extends Component {
                 })
             })
         }
-      }
+    }
+
+    remove = (band) => {
+        //band está vindo como undefined
+        console.log(band)
+        let filteredArray = this.state.historico.filter(item => item == band)
+        console.log(filteredArray);
+        this.setState({historico: filteredArray});
+        console.log(this.state.historico);
+    }
 
     renderBand(){
         if(this.state.name != ''){
@@ -59,6 +80,13 @@ class Band extends Component {
                 <br /><br /><br />
                 
                 {this.renderBand()}                
+
+                <br /><br />
+                <Menu 
+                    historico={this.state.historico} 
+                    callApi={() => this.callApi()}
+                    remove={() => this.remove()}
+                />
             </div>
         )
     }

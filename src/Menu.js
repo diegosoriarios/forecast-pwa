@@ -17,7 +17,7 @@ class Menu extends Component{
         return(
             <div className="historico">
                 <div className="box-historico">
-                    <h1>Histórico</h1>
+                    <h1>Salvos</h1>
                     <ul>
                         {item}
                     </ul>

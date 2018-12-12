@@ -15,12 +15,14 @@ input, button {
 }
 
 input[type="text"], textarea {
+  margin-top: 20px;
   background-color: 'white';
   border: 0;
   border-bottom: 1px solid rgba(0,0,0, .08);
   line-height: 2;
   outline: 8;
   padding-left: 8px;
+  text-align:  center;
 }
 
 ul {
@@ -46,5 +48,18 @@ li:nth-child(even) {
   height: 75px;
   width: 100%;
   margin-top: -20px;
-  line-height: 2;
+}
+
+.header h1{
+  display: inline-block;
+  line-height: 1.5;
+}
+
+.menu-history {
+  display: inline-block;
+  font-size: 1.6em;
+  right: 25px;
+  position: absolute;
+  cursor: pointer;
+  color: #fff;
 }

@@ -10,16 +10,10 @@ class Menu extends Component{
         const item = this.props.historico.map((item, i) => {
             return <li key={i} onClick={() => this.onHandlerClick({item})}>{item}</li>
         })
-        let titulo;
-        if(this.props.historico.length > 0){
-            titulo = <h1>Histórico</h1>
-        }else{
-            titulo = <span />
-        }
         
         return(
-            <div class="historico">
-                {titulo}
+            <div className="historico">
+                <h1>Histórico</h1>
                 <ul>
                     {item}
                 </ul>

@@ -31,15 +31,14 @@ class Band extends Component {
         this.setState({
             historico: this.state.historico.concat(band)
         }, () => {
-            var items = this.state.historico;
-            this.state.historico.map((item) => {
+            this.state.historico.forEach((item) => {
                 localStorage.setItem(band, JSON.stringify(item));
             })
-            console.log(this.state.historico);
         });
     }
 
     callApi(band){
+        this.props.modal();
         if(this.props.offline){
             console.log("Você está offline");
             this.store(band);            
@@ -73,12 +72,12 @@ class Band extends Component {
     }
 
     renderBand(){
-        if(this.state.name != ''){
+        if(this.state.name !== ''){
             return (
                 <div className="bands">
                     <h2>{this.state.name}</h2>
                     <a href={this.state.link}>{this.state.link}</a>
-                    <img src={this.state.image} alt="image"/>
+                    <img src={this.state.image} alt=""/>
                 </div>
             );
         }else {
@@ -86,24 +85,41 @@ class Band extends Component {
         }
     }
 
+    renderHistory = () => {
+        if(this.props.showModal){
+            return (
+                <div className="container">
+                    <div className="box">
+                        <Menu 
+                            historico={this.state.historico} 
+                            callApi={() => this.callApi()}
+                            remove={this.remove}
+                        />
+                    </div>
+                </div>
+            );
+        }else{
+            return (
+                <div className="band">
+                    <input type="text" value={this.state.band} onChange={e => this.setState({band: e.target.value})} />
+                    <br /><br />
+                    <Button onClick={() => this.callApi(this.state.band)} >Busca</Button>
+                    <br /><br /><br />
+                    
+                    {this.renderBand()}                
+
+                    <br /><br />
+                </div>
+            );
+        }
+    }
+
     render() {
         return(
-            <div className="band">
-                <input type="text" value={this.state.band} onChange={e => this.setState({band: e.target.value})} />
-                <br /><br />
-                <Button onClick={() => this.callApi(this.state.band)} >Busca</Button>
-                <br /><br /><br />
-                
-                {this.renderBand()}                
-
-                <br /><br />
-                <Menu 
-                    historico={this.state.historico} 
-                    callApi={() => this.callApi()}
-                    remove={this.remove}
-                />
+            <div>
+                {this.renderHistory()}
             </div>
-        )
+        );
     }
 }
 

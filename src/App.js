@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { NumericTextBox } from '@progress/kendo-react-inputs';
 import './App.css';
 import '@progress/kendo-theme-default/dist/all.css';
 import Band from './Band';
@@ -9,7 +8,8 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      offline: false
+      offline: false,
+      showHistory: false
     }
   }
 
@@ -30,11 +30,25 @@ class App extends Component {
     }
   }
 
+  showHideModal = () => {
+    this.setState({
+      showHistory: !this.state.showHistory
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <Header offline={this.state.offline}/>
-        <Band offline={this.state.offline}/>
+        <Header 
+          offline={this.state.offline} 
+          modal={this.showHideModal} 
+          showHistory={this.state.showHistory}
+        />
+        <Band 
+          offline={this.state.offline} 
+          showModal={this.state.showHistory}
+          modal={this.showHideModal}
+        />
       </div>
     );
   }

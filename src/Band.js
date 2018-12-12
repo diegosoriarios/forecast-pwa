@@ -15,25 +15,27 @@ class Band extends Component {
         }
     }
 
-    /*componentDidUpdate(){
-        if(!this.props.offline && this.state.historico.length > 0){
-            alert("Quer procurar alguma dessas opções: \n" + this.state.historico);
-        }
-    }*/
+    componentDidMount(){
+        const cached = localStorage.getItem("item");
+        const values = JSON.parse(cached);
+        this.setState({
+            historico: this.state.historico.concat(values)
+        })
+    }
 
     store = (band) => {
         this.setState({
             historico: this.state.historico.concat(band)
         }, () => {
             var items = this.state.historico;
-            localStorage.setItem("item", JSON.stringify(items));
+            localStorage.setItem(band, JSON.stringify(items));
             console.log(this.state.historico);
         });
     }
 
     callApi(band){
         if(this.props.offline){
-            alert("Você está offline");
+            console.log("Você está offline");
             this.store(band);            
         }else{
             fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=${band}&api_key=0c05709ba56254b354388302bb35460b&format=json`)
@@ -55,11 +57,12 @@ class Band extends Component {
         }
     }
 
-    remove = (band) => {
+    remove = (band, i) => {
         console.log(band)
         let filteredArray = this.state.historico.filter(item => item !== band)
         console.log(filteredArray);
         this.setState({historico: filteredArray});
+        localStorage.removeItem(localStorage.getItem(i))
         console.log(this.state.historico);
     }
 

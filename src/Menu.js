@@ -13,10 +13,12 @@ class Menu extends Component{
         
         return(
             <div className="historico">
-                <h1>Histórico</h1>
-                <ul>
-                    {item}
-                </ul>
+                <div className="box-historico">
+                    <h1>Histórico</h1>
+                    <ul>
+                        {item}
+                    </ul>
+                </div>
             </div>
         );
     }

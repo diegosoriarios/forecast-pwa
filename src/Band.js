@@ -29,7 +29,7 @@ class Band extends Component {
 
     store = (band) => {
         this.setState({
-            historico: this.state.historico.concat(band)
+            historico: this.state.historico.concat(JSON.stringify(band))
         }, () => {
             this.state.historico.forEach((item) => {
                 localStorage.setItem(band, JSON.stringify(item));

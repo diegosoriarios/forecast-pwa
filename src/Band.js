@@ -14,22 +14,26 @@ class Band extends Component {
     }
 
     callApi(band){
-        fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=${band}&api_key=0c05709ba56254b354388302bb35460b&format=json`)
-        .then((result) => {
-          return result.json();
-        }).then((band) => {
-          let max = band.similarartists.artist.length;
-          let rand = Math.floor(Math.random() * max) + 1 ;
-          let artist = band.similarartists.artist[rand];
-          return artist;
-        }).then((artist) => {
-          let img = artist.image[5]['#text'];
-          this.setState({
-            name: artist.name,
-            image: img,
-            link: artist.url,
-          })
-        })
+        if(this.props.offline){
+            alert("Você está offline");
+        }else{
+            fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=${band}&api_key=0c05709ba56254b354388302bb35460b&format=json`)
+            .then((result) => {
+                return result.json();
+            }).then((band) => {
+                let max = band.similarartists.artist.length;
+                let rand = Math.floor(Math.random() * max) + 1 ;
+                let artist = band.similarartists.artist[rand];
+                return artist;
+            }).then((artist) => {
+                let img = artist.image[5]['#text'];
+                this.setState({
+                name: artist.name,
+                image: img,
+                link: artist.url,
+                })
+            })
+        }
       }
 
     renderBand(){

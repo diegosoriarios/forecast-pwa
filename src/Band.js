@@ -16,10 +16,14 @@ class Band extends Component {
     }
 
     componentDidMount(){
-        const cached = localStorage.getItem("item");
-        const values = JSON.parse(cached);
+        let cached = [];
+        for(var i = 0; i < localStorage.length; i++){
+            cached = cached.concat(localStorage.getItem(localStorage.key(i)));
+        }
+        //const values = JSON.parse(cached);
         this.setState({
-            historico: this.state.historico.concat(values)
+            //historico: this.state.historico.concat(values)
+            historico: cached
         })
     }
 
@@ -28,7 +32,9 @@ class Band extends Component {
             historico: this.state.historico.concat(band)
         }, () => {
             var items = this.state.historico;
-            localStorage.setItem(band, JSON.stringify(items));
+            this.state.historico.map((item) => {
+                localStorage.setItem(band, JSON.stringify(item));
+            })
             console.log(this.state.historico);
         });
     }
@@ -57,12 +63,12 @@ class Band extends Component {
         }
     }
 
-    remove = (band, i) => {
+    remove = (band) => {
         console.log(band)
         let filteredArray = this.state.historico.filter(item => item !== band)
         console.log(filteredArray);
         this.setState({historico: filteredArray});
-        localStorage.removeItem(localStorage.getItem(i))
+        localStorage.removeItem(JSON.parse(band));
         console.log(this.state.historico);
     }
 

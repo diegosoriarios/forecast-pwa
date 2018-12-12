@@ -50,7 +50,7 @@ class Band extends Component {
             if(this.props.showModal){
                 this.props.modal();
             }
-            fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=${band}&api_key=0c05709ba56254b354388302bb35460b&format=json`)
+            fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=${band}&api_key=0c05709ba56254b354388302bb35460b&format=json`)
             .then((result) => {
                 return result.json();
             }).then((band) => {
@@ -83,7 +83,7 @@ class Band extends Component {
             return (
                 <div className="bands">
                     <h2>{this.state.name}</h2>
-                    <a href={this.state.link}>{this.state.link}</a>
+                    <a href={this.state.link}>{this.state.link}</a><br />
                     <img src={this.state.image} alt=""/>
                 </div>
             );

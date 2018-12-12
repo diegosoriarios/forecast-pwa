@@ -20,16 +20,14 @@ class Band extends Component {
         for(var i = 0; i < localStorage.length; i++){
             cached = cached.concat(localStorage.getItem(localStorage.key(i)));
         }
-        //const values = JSON.parse(cached);
         this.setState({
-            //historico: this.state.historico.concat(values)
             historico: cached
         })
     }
 
     store = (band) => {
         this.setState({
-            historico: this.state.historico.concat(JSON.stringify(band))
+            historico: this.state.historico.concat(band)
         }, () => {
             this.state.historico.forEach((item) => {
                 localStorage.setItem(band, JSON.stringify(item));
@@ -38,11 +36,11 @@ class Band extends Component {
     }
 
     callApi(band){
-        this.props.modal();
         if(this.props.offline){
             console.log("Você está offline");
             this.store(band);            
         }else{
+            this.props.modal();
             fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=${band}&api_key=0c05709ba56254b354388302bb35460b&format=json`)
             .then((result) => {
                 return result.json();

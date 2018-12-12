@@ -33,7 +33,7 @@ class Band extends Component {
             console.log('Repetido');
         }else{
             this.setState({
-                historico: this.state.historico.concat(band)
+                historico: this.state.historico.concat(JSON.stringify(band))
             }, () => {
                 this.state.historico.forEach((item) => {
                     localStorage.setItem(band, JSON.stringify(item));
@@ -47,7 +47,9 @@ class Band extends Component {
             console.log("Você está offline");
             this.store(band);            
         }else{
-            this.props.modal();
+            if(this.props.showModal){
+                this.props.modal();
+            }
             fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=${band}&api_key=0c05709ba56254b354388302bb35460b&format=json`)
             .then((result) => {
                 return result.json();

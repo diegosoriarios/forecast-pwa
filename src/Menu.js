@@ -9,9 +9,9 @@ class Menu extends Component{
 
     render(){
         const item = this.props.historico.map((item, i) => {
-            item = item.replace('"','');
-            item = item.replace('"','');
-            return <li key={i} onClick={() => this.onHandlerClick({item})}>{item}</li>
+            let string = item.replace('"\\"','');
+            string = string.replace('\\""','');
+            return <li key={i} onClick={() => this.onHandlerClick({item})}>{string}</li>
         })
         
         return(

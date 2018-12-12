@@ -59,7 +59,7 @@ li:nth-child(even) {
 
 .menu-history {
   display: inline-block;
-  font-size: 1.6em;
+  font-size: 1.5em;
   right: 25px;
   position: absolute;
   cursor: pointer;

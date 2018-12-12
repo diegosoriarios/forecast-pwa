@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Gamja+Flower');
+@import url('https://fonts.googleapis.com/css?family=Saira+Semi+Condensed');
 
 .App {
   text-align: center;
@@ -13,7 +13,7 @@ p {
 }
 
 input, button {
-  font-family: 'Gamja Flower', cursive;
+  font-family: 'Saira Semi Condensed', sans-serif;
 }
 
 input[type="text"], textarea {

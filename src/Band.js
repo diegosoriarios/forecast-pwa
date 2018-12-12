@@ -49,9 +49,8 @@ class Band extends Component {
     }
 
     remove = (band) => {
-        //band está vindo como undefined
         console.log(band)
-        let filteredArray = this.state.historico.filter(item => item == band)
+        let filteredArray = this.state.historico.filter(item => item !== band)
         console.log(filteredArray);
         this.setState({historico: filteredArray});
         console.log(this.state.historico);
@@ -85,7 +84,7 @@ class Band extends Component {
                 <Menu 
                     historico={this.state.historico} 
                     callApi={() => this.callApi()}
-                    remove={() => this.remove()}
+                    remove={this.remove}
                 />
             </div>
         )

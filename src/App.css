@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Saira+Semi+Condensed');
 
+* {
+  background-color: #87A6DA;
+}
+
 .App {
   text-align: center;
 }
@@ -20,11 +24,12 @@ input[type="text"], textarea {
   margin-top: 20px;
   background-color: 'white';
   border: 0;
-  border-bottom: 1px solid rgba(0,0,0, .08);
+  border-bottom: 2px solid rgba(0,0,0, .08);
   line-height: 2;
   outline: 8;
   padding-left: 8px;
   text-align:  center;
+  margin-left: 5px;
 }
 
 ul {
@@ -72,6 +77,7 @@ ul {
 .temp-box{
   width: 80%;
   margin: 10px auto;
+  box-shadow: 5px 5px 20px #888888;
 }
 
 li {

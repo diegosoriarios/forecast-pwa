@@ -94,8 +94,8 @@ class App extends Component {
         );
     }else{
       return (
-        <div>
-          <h2>Você está offline</h2>
+        <div className="App">
+          <h2 align="center">Você está offline</h2>
           <ListTemp temp={this.state.history} />
         </div>
       );
@@ -105,7 +105,7 @@ class App extends Component {
   render() {
     let status = this.state.offline ? <h1>Offline</h1> : <h1>Online</h1>
     return (
-      <div>
+      <div className="App">
         {status}<br />
         {this.renderDiv()}
       </div>

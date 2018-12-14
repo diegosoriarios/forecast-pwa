@@ -46,33 +46,6 @@ ul {
   padding: 0;
 }
 
-.header h1{
-  display: inline-block;
-  line-height: 1.5;
-}
-
-.menu-history {
-  display: inline-block;
-  font-size: 1.5em;
-  right: 25px;
-  position: absolute;
-  cursor: pointer;
-  color: #000;
-}
-
-.historico {
-  background-color: black;
-  height: 90vh;
-  padding-top: 20px;
-}
-
-.box-historico {
-  background-color: #fff;
-  width: 50%;
-  margin: 0 auto;
-  border-radius: 5px;
-}
-
 .temp-container {
   text-align: center;
 }

@@ -44,6 +44,9 @@ class App extends Component {
   }
 
   callApi(city, country){
+    this.setState({
+      temperaturas: []
+    })
     if(city.length > 0 && country.length > 0){
       fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&lang=pt&units=metric&mode=json&appid=5325907441644570670df6cdec3acd5a`)
       .then((result) => {
@@ -59,6 +62,7 @@ class App extends Component {
                   dado.dt_txt]
               ])
             }, () => {
+              localStorage.clear();
               console.log(this.state.temperaturas)
               this.state.temperaturas.forEach((item, i) => {
                 localStorage.setItem(i, JSON.stringify(item))

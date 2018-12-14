@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { timingSafeEqual } from 'crypto';
+import './App.css';
 
 class ListTemp extends Component {
     constructor(props){
@@ -12,20 +12,20 @@ class ListTemp extends Component {
     renderTemp = () => {
         return this.props.temp.map((i, index) => {
             return (
-                <li key={index}>{
+                <ul key={index} className="temp-box">{
                 i.map((item) => {
-                    return <span>{item} </span>
+                    return <li className="itens">{item} </li>
                 })
-            }</li>
+            }</ul>
             );
         })
     }
 
     render(){
         return(
-            <ul>
+            <div className="temp-container">
                 {this.renderTemp()}
-            </ul>
+            </div>
         );
     }
 }

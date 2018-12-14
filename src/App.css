@@ -31,20 +31,6 @@ ul {
   padding: 0;
 }
 
-li {
-  background-color: rgba(0,0,0, .01);
-  font-size: 1.25em;
-  list-style-type: none;
-  margin: 8px auto;
-  padding: 0 0 2px 8px;
-  text-align: left;
-  width: 95%;
-}
-
-li:nth-child(even) {
-  background-color: rgba(0,0,0,.05);
-}
-
 .header {
   background-color: #ff6358;
   height: 75px;
@@ -77,4 +63,36 @@ li:nth-child(even) {
   width: 50%;
   margin: 0 auto;
   border-radius: 5px;
+}
+
+.temp-container {
+  text-align: center;
+}
+
+.temp-box{
+  width: 80%;
+  margin: 10px auto;
+}
+
+li {
+ list-style-type: none;
+ color: white;
+}
+
+.itens:nth-child(1){
+  background-color: darkblue;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-size: 2em;
+}
+
+.itens:nth-child(2){
+  background-color: blue;
+  font-size: 1.5em;
+}
+
+.itens:nth-child(3){
+  background-color: lightblue;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }

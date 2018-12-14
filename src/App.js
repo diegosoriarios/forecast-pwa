@@ -113,10 +113,9 @@ class App extends Component {
   }
 
   render() {
-    let status = this.state.offline ? <h1>Offline</h1> : <h1>Online</h1>
     return (
       <div className="App">
-        {status}<br />
+        <h1>Forecast</h1><br />
         {this.renderDiv()}
       </div>
     );

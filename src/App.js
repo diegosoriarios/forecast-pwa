@@ -90,17 +90,18 @@ class App extends Component {
       if(!this.state.offline){
           return (
             <div className="App">
-            <label>Cidade
+            <label>
+              <span>Cidade</span>
               <input 
                 type="text"
                 value={this.state.city}
                 onChange={e => this.setState({city: e.target.value})}
               />
             </label>
-            <label>País
+            <label>
+              <span>País</span>
               <input
                 type="text"
-                placeholder="País"
                 value={this.state.country}
                 maxLength="2"
                 onChange={e => this.setState({country: e.target.value})}

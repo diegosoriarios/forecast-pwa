@@ -44,6 +44,11 @@ class ListTemp extends Component {
                         default:
                             item = <p>{item}</p>;
                     }
+                    if(index === 2){
+                        let data = item.props.children.split(" ");
+                        data = data[0].split("-");
+                        item = `${data[2]}/${data[1]}/${data[0]}`
+                    }
                     return <li className="itens" key={index}>{item} </li>
                 })
             }</ul>

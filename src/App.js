@@ -90,19 +90,22 @@ class App extends Component {
       if(!this.state.offline){
           return (
             <div className="App">
-            <input 
-              type="text"
-              placeholder="Cidade" 
-              value={this.state.city}
-              onChange={e => this.setState({city: e.target.value})}
-            />
-            <input
-              type="text"
-              placeholder="País"
-              value={this.state.country}
-              maxLength="2"
-              onChange={e => this.setState({country: e.target.value})}
-            />
+            <label>Cidade
+              <input 
+                type="text"
+                value={this.state.city}
+                onChange={e => this.setState({city: e.target.value})}
+              />
+            </label>
+            <label>País
+              <input
+                type="text"
+                placeholder="País"
+                value={this.state.country}
+                maxLength="2"
+                onChange={e => this.setState({country: e.target.value})}
+              />
+            </label>
             <button className="btn-search" onClick={() => this.callApi(this.state.city, this.state.country)}>Busca</button>
             <ListTemp temp={this.state.temperaturas} />
           </div>

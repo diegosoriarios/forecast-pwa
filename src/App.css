@@ -16,6 +16,10 @@ p {
   margin: 0;
 }
 
+h1 {
+  color: white;
+}
+
 input, button {
   font-family: 'Saira Semi Condensed', sans-serif;
 }
@@ -108,7 +112,7 @@ li {
   border-radius: 5px;
   width: 100px;
   font-weight: bold;
-  color: #00AAFF;
+  color: #004F7A;
 }
 
 .modal {

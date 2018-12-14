@@ -89,13 +89,13 @@ class App extends Component {
             onChange={e => this.setState({country: e.target.value})}
           />
           <button onClick={() => this.callApi(this.state.city, this.state.country)}>Busca</button>
-          {this.state.temperaturas}
+          <ListTemp temp={this.state.temperaturas} />
         </div>
         );
     }else{
       return (
         <div className="App">
-          <h2 align="center">Você está offline</h2>
+          <h2 align="center">{this.state.city}</h2>
           <ListTemp temp={this.state.history} />
         </div>
       );

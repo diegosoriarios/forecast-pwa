@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Saira+Semi+Condensed');
 
-* {
+html {
   background-color: #00AAFF;
 }
 
@@ -22,25 +22,24 @@ input, button {
 
 input[type="text"], textarea {
   margin-top: 20px;
-  background-color: 'white';
+  background-color: transparent;
   border: 0;
-  border-bottom: 2px solid rgba(0,0,0, .08);
+  border-bottom: 2px solid rgba(255,255,255, 0.8);
   line-height: 2;
   outline: 8;
   padding-left: 8px;
   text-align:  center;
   margin-left: 5px;
+  font-weight: bold;
+  color: white;
+}
+
+input[type="text"]:focus {
+  outline: none;
 }
 
 ul {
   padding: 0;
-}
-
-.header {
-  background-color: #ff6358;
-  height: 75px;
-  width: 100%;
-  margin-top: -20px;
 }
 
 .header h1{
@@ -101,4 +100,13 @@ li {
   background-color: lightblue;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+.btn-search{
+  background-color: transparent;
+  border: 2px white solid;
+  border-radius: 5px;
+  width: 100px;
+  font-weight: bold;
+  color: white;
 }

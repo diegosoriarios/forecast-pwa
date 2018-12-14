@@ -88,7 +88,7 @@ class App extends Component {
             value={this.state.country}
             onChange={e => this.setState({country: e.target.value})}
           />
-          <button onClick={() => this.callApi(this.state.city, this.state.country)}>Busca</button>
+          <button className="btn-search" onClick={() => this.callApi(this.state.city, this.state.country)}>Busca</button>
           <ListTemp temp={this.state.temperaturas} />
         </div>
         );

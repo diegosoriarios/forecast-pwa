@@ -91,12 +91,14 @@ class App extends Component {
           return (
             <div className="App">
             <input 
-              type="text" 
+              type="text"
+              placeholder="Cidade" 
               value={this.state.city}
               onChange={e => this.setState({city: e.target.value})}
             />
             <input
               type="text"
+              placeholder="País"
               value={this.state.country}
               maxLength="2"
               onChange={e => this.setState({country: e.target.value})}

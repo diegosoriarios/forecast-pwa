@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Saira+Semi+Condensed');
 
 html {
-  background-color: #00AAFF;
+  background-color: #004F7A;
 }
 
 .App {
@@ -103,12 +103,12 @@ li {
 }
 
 .btn-search{
-  background-color: transparent;
+  background-color: white;
   border: 2px white solid;
   border-radius: 5px;
   width: 100px;
   font-weight: bold;
-  color: white;
+  color: #00AAFF;
 }
 
 .modal {

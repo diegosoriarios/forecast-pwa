@@ -63,7 +63,6 @@ class App extends Component {
               ])
             }, () => {
               localStorage.clear();
-              console.log(this.state.temperaturas)
               this.state.temperaturas.forEach((item, i) => {
                 localStorage.setItem(i, JSON.stringify(item))
               })
@@ -71,7 +70,6 @@ class App extends Component {
           }
         })
       }).catch(err => {
-        console.log(err);
         this.setState({msg: "Cidade não encontada", showModal: true})
       })
     }else{

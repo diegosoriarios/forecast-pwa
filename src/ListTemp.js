@@ -38,6 +38,9 @@ class ListTemp extends Component {
                         case "nuvens quebrados":
                             item = <p>Sol entre Nuvens <FontAwesomeIcon icon="cloud-sun" color="lightyellow" /></p>
                             break;
+                        case "algumas nuvens":
+                            item = <p>Algumas nuvens <FontAwesomeIcon icon="cloud" color="lightyellow" /></p>
+                            break;
                         default:
                             item = <p>{item}</p>;
                     }

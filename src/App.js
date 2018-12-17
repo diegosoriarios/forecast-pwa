@@ -3,6 +3,7 @@ import './App.css';
 import '@progress/kendo-theme-default/dist/all.css';
 import ListTemp from './ListTemp';
 import Modal from './Modal';
+import Footer from './Footer';
 
 class App extends Component {
   constructor(props){
@@ -97,16 +98,18 @@ class App extends Component {
           return (
             <div className="App">
             <label>
-              <span>Cidade</span>
-              <input 
+              <span>Cidade:</span>
+              <input
+                className="input_city" 
                 type="text"
                 value={this.state.city}
                 onChange={e => this.setState({city: e.target.value})}
               />
             </label>
             <label>
-              <span>País</span>
+              <span>País:</span>
               <input
+                className="input_country"
                 type="text"
                 value={this.state.country}
                 maxLength="2"
@@ -133,6 +136,7 @@ class App extends Component {
       <div className="App">
         <h1>Forecast</h1><br />
         {this.renderDiv()}
+        <Footer />
       </div>
     );
   }

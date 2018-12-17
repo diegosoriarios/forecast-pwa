@@ -6,6 +6,7 @@ html {
 
 .App {
   text-align: center;
+  overflow: hidden;
 }
 
 button {
@@ -31,7 +32,6 @@ input[type="text"], textarea {
   border-bottom: 2px solid rgba(255,255,255, 0.8);
   line-height: 2;
   outline: 8;
-  padding-left: 8px;
   text-align:  center;
   margin-left: 5px;
   font-weight: bold;
@@ -42,12 +42,19 @@ input[type="text"]:focus, .btn-search {
   outline: none;
 }
 
+.input_country {
+  width: 20px;
+  text-transform: uppercase;
+}
+
 ul {
   padding: 0;
 }
 
 .temp-container {
   text-align: center;
+  margin-bottom: 50px;
+  overflow: auto;
 }
 
 .temp-box{
@@ -110,4 +117,19 @@ label span {
 
 .place {
   color: white;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #004F7A;
+  background-color: white;
+  text-align: center;
+}
+
+.footer a {
+  color: lightblue;
+  text-decoration: none;
 }

@@ -15,6 +15,7 @@ class App extends Component {
       history: [],
       showModal: false,
       msg: '',
+      place: ''
     }
   }
 
@@ -28,11 +29,15 @@ class App extends Component {
     });
 
     let cached = [];
+    let lugar = JSON.parse(localStorage.getItem('place'));
+    localStorage.removeItem('place');
     for(var i = 0; i < localStorage.length; i++){
       cached = cached.concat([JSON.parse(localStorage.getItem(localStorage.key(i)))]);
     }
+    localStorage.setItem('place', JSON.stringify(lugar));
     this.setState({
       history: cached,
+      place: lugar
     })
   }
 
@@ -44,6 +49,7 @@ class App extends Component {
   }
 
   callApi(city, country){
+    city = city.replace(/\b\w/g, l => l.toUpperCase())
     this.setState({
       temperaturas: []
     })
@@ -59,10 +65,12 @@ class App extends Component {
               temperaturas: this.state.temperaturas.concat([
                   [dado.main.temp,
                   dado.weather[0].description,
-                  dado.dt_txt]
-              ])
+                  dado.dt_txt] 
+              ]),
+              place: city
             }, () => {
               localStorage.clear();
+              localStorage.setItem('place', JSON.stringify(city));
               this.state.temperaturas.forEach((item, i) => {
                 localStorage.setItem(i, JSON.stringify(item))
               })
@@ -112,7 +120,7 @@ class App extends Component {
       }else{
         return (
           <div className="App">
-            <h2 align="center">{this.state.city}</h2>
+            <h2 className="place">{this.state.place}</h2>
             <ListTemp temp={this.state.history} />
           </div>
         );

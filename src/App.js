@@ -4,7 +4,6 @@ import '@progress/kendo-theme-default/dist/all.css';
 import ListTemp from './ListTemp';
 import Modal from './Modal';
 import Footer from './Footer';
-import { faTshirt } from '@fortawesome/free-solid-svg-icons';
 
 class App extends Component {
   constructor(props){
@@ -31,12 +30,14 @@ class App extends Component {
     });
 
     let cached = [];
-    let lugar = JSON.parse(localStorage.getItem('place'));
-    localStorage.removeItem('place');
+    let lugar = '';
     for(var i = 0; i < localStorage.length; i++){
-      cached = cached.concat([JSON.parse(localStorage.getItem(localStorage.key(i)))]);
+      if(localStorage.key(i) === 'place'){
+        lugar = JSON.parse(localStorage.getItem(localStorage.key(i)));
+      }else{
+        cached = cached.concat([JSON.parse(localStorage.getItem(localStorage.key(i)))]);
+      }
     }
-    localStorage.setItem('place', JSON.stringify(lugar));
     this.setState({
       history: cached,
       place: lugar

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Saira+Semi+Condensed');
 
 html {
-  background-color: #004F7A;
+  background-color: #c0dfd9;
 }
 
 .App {
@@ -18,7 +18,7 @@ p {
 }
 
 h1 {
-  color: white;
+  color: #252839;
 }
 
 input, button {
@@ -29,13 +29,13 @@ input[type="text"], textarea {
   margin-top: 20px;
   background-color: transparent;
   border: 0;
-  border-bottom: 2px solid rgba(255,255,255, 0.8);
+  border-bottom: 2px solid rgba(25,28,39, 0.8);
   line-height: 2;
   outline: 8;
   text-align:  center;
   margin-left: 5px;
   font-weight: bold;
-  color: white;
+  color: #252839;
 }
 
 input[type="text"]:focus, .btn-search {
@@ -65,34 +65,35 @@ ul {
 
 li {
  list-style-type: none;
- color: white;
+ color: #252839;
 }
 
 .itens:nth-child(1){
-  background-color: darkblue;
+  background-color: #e9ece5;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   font-size: 2em;
 }
 
 .itens:nth-child(2){
-  background-color: blue;
+  background-color: #b3c2bf;
   font-size: 1.5em;
 }
 
 .itens:nth-child(3){
-  background-color: lightblue;
+  background-color: #252839;
+  color: white;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 
 .btn-search{
-  background-color: white;
-  border: 2px white solid;
+  background-color: #252839;
+  border: 2px #252839 solid;
   border-radius: 5px;
   width: 100px;
   font-weight: bold;
-  color: #004F7A;
+  color: #c0dfd9;
 }
 
 .modal {
@@ -104,7 +105,7 @@ li {
 }
 
 .box-modal {
-  background-color: white;
+  background-color: #252839;
   margin: auto;
   margin-top: 50%;
   width: 60%;
@@ -112,11 +113,11 @@ li {
 }
 
 label span {
-  color: white;
+  color: #252839;
 }
 
 .place {
-  color: white;
+  color: #252839;
 }
 
 .footer {
@@ -124,12 +125,12 @@ label span {
   left: 0;
   bottom: 0;
   width: 100%;
-  color: #004F7A;
-  background-color: white;
+  color: #c0dfd9;
+  background-color: #252839;
   text-align: center;
 }
 
 .footer a {
-  color: lightblue;
+  color: #9fa8a3;
   text-decoration: none;
 }

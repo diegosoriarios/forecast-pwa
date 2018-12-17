@@ -4,6 +4,7 @@ import '@progress/kendo-theme-default/dist/all.css';
 import ListTemp from './ListTemp';
 import Modal from './Modal';
 import Footer from './Footer';
+import { faTshirt } from '@fortawesome/free-solid-svg-icons';
 
 class App extends Component {
   constructor(props){
@@ -75,6 +76,7 @@ class App extends Component {
               this.state.temperaturas.forEach((item, i) => {
                 localStorage.setItem(i, JSON.stringify(item))
               })
+              this.setState({history: this.state.temperaturas})
             })
           }
         })

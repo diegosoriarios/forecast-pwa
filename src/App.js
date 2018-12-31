@@ -4,6 +4,7 @@ import '@progress/kendo-theme-default/dist/all.css';
 import ListTemp from './ListTemp';
 import Modal from './Modal';
 import Footer from './Footer';
+import { CountryDropdown } from 'react-country-region-selector';
 
 class App extends Component {
   constructor(props){
@@ -100,28 +101,34 @@ class App extends Component {
       if(!this.state.offline){
           return (
             <div className="App">
-            <label>
-              <span>Cidade:</span>
-              <input
-                className="input_city" 
-                type="text"
-                value={this.state.city}
-                onChange={e => this.setState({city: e.target.value})}
-              />
-            </label>
-            <label>
-              <span>País:</span>
-              <input
-                className="input_country"
-                type="text"
-                value={this.state.country}
-                maxLength="2"
-                onChange={e => this.setState({country: e.target.value})}
-              />
-            </label>
-            <button className="btn-search" onClick={() => this.callApi(this.state.city, this.state.country)}>Busca</button>
-            <ListTemp temp={this.state.temperaturas} />
-          </div>
+              <div className="Header">
+                <label>
+                  <span>Cidade:</span>
+                  <input
+                    placeholder="Cidade"
+                    className="input_city" 
+                    type="text"
+                    value={this.state.city}
+                    onChange={e => this.setState({city: e.target.value})}
+                  />
+                </label>
+                <label>
+                  <span>País:</span>
+                  <CountryDropdown
+                    className="input_country"
+                    defaultOptionLabel="País"
+                    value={this.state.country}
+                    labelType="short"
+                    valueType="short"
+                    onChange={e => this.setState({country: e.target.value})}
+                    priorityOptions={["BR", "US", "UY"]}
+                  />
+                </label>
+                <br />
+                <button className="btn-search" onClick={() => this.callApi(this.state.city, this.state.country)}>Busca</button>
+                <ListTemp temp={this.state.temperaturas} />
+              </div>        
+            </div>
           );
       }else{
         return (

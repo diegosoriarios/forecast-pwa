@@ -31,13 +31,14 @@ input[type="text"], textarea {
   margin-top: 20px;
   background-color: transparent;
   border: 0;
-  border-bottom: 2px solid rgba(25,28,39, 0.8);
   line-height: 2;
   outline: 8;
   text-align:  center;
-  margin-left: 5px;
   font-weight: bold;
+  background-color: rgb(192, 223, 217);
   color: #252839;
+  border-radius: 5px;
+  width: 60%;
 }
 
 input[type="text"]:focus, .btn-search {
@@ -45,8 +46,14 @@ input[type="text"]:focus, .btn-search {
 }
 
 .input_country {
-  width: 20px;
   text-transform: uppercase;
+  background-color: #252839;
+  border: none;
+  height: 25px;
+  width: 18%;
+  margin-left: 1%;
+  background-color: rgb(192, 223, 217);
+  color: #252839;
 }
 
 ul {
@@ -91,12 +98,14 @@ li {
 }
 
 .btn-search{
-  background-color: #252839;
+  margin: 10px 0 0 0;
+  background-color: #c0dfd9;
   border: 2px #252839 solid;
   border-radius: 5px;
-  width: 100px;
+  height: 30px;
+  width: 80%;
   font-weight: bold;
-  color: #c0dfd9;
+  color: #252839;
 }
 
 .modal {
@@ -116,7 +125,8 @@ li {
 }
 
 label span {
-  color: #252839;
+  color: #c0dfd9;
+  display: none;
 }
 
 .place {
@@ -136,4 +146,13 @@ label span {
 .footer a {
   color: #9fa8a3;
   text-decoration: none;
+}
+
+.Header {
+  height: 15%;
+  padding-top: 10%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-color: #252839;
 }

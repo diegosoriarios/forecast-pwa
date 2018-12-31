@@ -94,6 +94,10 @@ class App extends Component {
     this.setState({showModal: false});
   }
 
+  selectCountry = val => {
+    this.setState({ country: val });
+  }
+
   renderDiv(){
     if(this.state.showModal){
       return <Modal title={this.state.msg} show={this.closeModal} />
@@ -120,7 +124,7 @@ class App extends Component {
                     value={this.state.country}
                     labelType="short"
                     valueType="short"
-                    onChange={e => this.setState({country: e.target.value})}
+                    onChange={(val) => this.selectCountry(val)}
                     priorityOptions={["BR", "US", "UY"]}
                   />
                 </label>

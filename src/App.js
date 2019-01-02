@@ -5,6 +5,7 @@ import ListTemp from './ListTemp';
 import Modal from './Modal';
 import Footer from './Footer';
 import { CountryDropdown } from 'react-country-region-selector';
+import { pedirPermissaoParaReceberNotificacoes } from './PushNotifications';
 
 class App extends Component {
   constructor(props){
@@ -129,6 +130,7 @@ class App extends Component {
                   />
                 </label>
                 <br />
+                <button onClick={pedirPermissaoParaReceberNotificacoes}>Clique</button>
                 <button className="btn-search" onClick={() => this.callApi(this.state.city, this.state.country)}>Busca</button>
                 <ListTemp temp={this.state.temperaturas} />
               </div>        
